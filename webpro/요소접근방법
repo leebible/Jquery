@@ -1,0 +1,40 @@
+script에서 html요소로 접근 방법
+
+id를 이용한 방법
+document //int, string 처럼 이미 정해져있는 객체
+var a = document.getElementById('id이름') //var는 써도 되고 안써도 된다.
+var a = document.querySelector('#id이름') //메소드에 Id를 가져오라는게 없으니 #을 붙여줘야함
+
+
+class를 이용한 방법
+var b1 = document.getElementsByClassName('class이름') //Element's'요소가 여러개 올수 있다.
+var b1 = document.querySelectorAll('.class이름') //클래스는 .을 붙임
+b1[0].innerHTML //like 배열..
+b1[1].innerHTML
+
+var b2 = document.querySelector('.class이름')
+b2.innerHTML
+
+
+name을 이용한 방법
+c = document.getElementsByName('name이름')
+c[0].
+c[1].
+
+tag이름을 이용한 방법
+d = document.getElementsByTagName('tag이름')
+d1 = document.querySelectorAll('tag이름') //태그 여러개 다 가져옴 !
+d2 = document.querySelector('tag이름')
+
+//요소의 값 가져오기
+☆☆☆☆☆☆☆☆☆☆☆☆☆중요☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+a.value -input요소, select/option, textarea
+b1[0].innerHTML - div, p, span, td, label, a, h1, h2, b, strong, em, mark
+d2.innerText - div, p, span, td, label, a, h1, h2, b, strong, em, mark
+
+//요소에 결과값을 출력하기
+value = "hi"; - input요소, select/option, textarea
+b1[0].innerHTML = "<a>abcde<br>네이버</a>"; //결과 : 기능이 모두 실현된상태로 abcde와 네이버 글자만 나옴 
+b1[1].innerText = "<a>abcde<br>네이버</a>";
+
+
