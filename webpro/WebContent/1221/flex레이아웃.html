@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body *{
+	box-sizing : border-box; /*보더 굵기랑 패딩값이 포함됨. 마진값은 포함이 안됨 */
+}
+#d1{
+	margin : 5px;
+	padding : 5px;
+	border : 2px dotted orange;
+	height : 300px;
+	display : flex;
+	flex-direction : row;
+}
+.in{
+	border : 1px solid gray;
+	height : 90%;
+	margin : 2px;
+}
+#in1{
+	padding : 6px;
+	flex : 30%;
+}
+#in2{
+	flex : 70%;
+	overflow : auto; 
+	padding : 5px;
+}
+img{
+	width : 100%;
+	height : 100%;
+}
+.pri{
+	background-color : yellow; /*위 span은 그대로 갖고오되 클래스에서 변형해줄수 있음  */
+	display : inline;
+	width : 500px; 
+	height: 500px; 
+}
+	
+</style>
+</head>
+<body>
+<div id="d1">
+	<div id="in1" class="in">
+		<img src="../images/사자.jpg" alt="사자.jpg">
+	</div>
+
+<div id="in2" class="in">
+	사자(獅子)는 아프리카와 인도에 서식하는 식육목(食肉目) 고양이과에 속하는 포유류이다.
+
+북아프리카와 아라비아, 서남아시아, 그리스에서도 과거엔 서식했었으나 그리스에서는 기원전부터 씨가 말랐고, 
+인도를 제외한 아시아 지역에서도 19~20세기부터 하나둘씩 사라져 갔다. 
+북아프리카에서도 1920년 모로코에서 사살되어 이 지역들의 야생 사자는 멸절된 상태이다.
+
+지금은 대부분이 사하라 이남 아프리카 사바나 일대에 서식하고 있고, 
+남서아프리카의 <span class="pri">나미비아 사막[1]</span>에 밀렵으로 멸종된 줄 알았던 사막 사자가 살아남아 있으며 '
+사헬 지대에도 일부 살아남아 있다. 
+인도의 기르숲이란 곳에도 사자가 약간 남아있기는 하다. 현재도 개체수가 계속 감소 중이기 때문에, 
+멸종위기 종으로 지정되어 보호받고 있다.
+
+강력한 힘과 갈기로 표현되는 용맹한 이미지로, 오랫동안 <span class="pri">'백수의 왕'</span>으로 불리며 
+왕의 상징으로 여겨지는 등 인기를 누려온 동물이다.
+
+</div>
+</div>
+</body>
+</html> 

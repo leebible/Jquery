@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+form{
+	background-color : #ffdbdb
+}
+</style>
+
+<!-- <script type="text/javascript"></script> : <script 하고 space누르면 자동완성 되는문장. type은 생략가능 -->
+<script>
+function changeColor() {
+	//html요소 접근
+	vcol = document.querySelector('#col');
+	vcol = document.getElementById('col');
+	//값 가져오기
+	cvalue = vcol.value;
+	console.log(cvalue); //페이지에서 F12 눌렀을때 consol에 출력
+	
+	//연산, 계산, 비교, 반복
+	
+	//출력 요소 접근
+	vform = document.querySelector("#ff") //<style>은 정적 스크립트 쿼리는 동적
+	vform.style.backgroundColor =cvalue;
+}
+
+</script>
+
+
+</head>
+
+<body>
+<form id="ff" action="타입.jsp" method="post">
+	<label>이름</label>
+	<input type="text" name="name" id="name"><br>
+	
+	<label>이메일</label>
+	<input type="email" name="email" id="email"><br>
+	<!-- type="email", "tel" 등..제대로 점검 안해줌.. -->
+	
+	<label>전화번호</label>
+	<input type="tel" name="tel" id="tel"><br>
+
+	<label>생일</label>
+	<input type="date" name="bir" id="bir"><br>
+
+	<label>색상변경</label>
+	<input type="color" name="col" id="col" onchange="changeColor()"><br>
+	<br>
+
+	<img src="../images/check.png" alt="check.png">
+	<br>
+		
+	<input type ="image" src="../images/check.png" alt="check.png">
+	<input type ="submit" value="전송">
+	<input type ="reset">
+	<br><br>
+	<button type="submit">전송</button>
+	<button type="reset">초기화</button>
+	<button type="button">확인</button>
+</form>
+</body>
+</html>

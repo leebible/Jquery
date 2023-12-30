@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//선언 방식 3가지
+/*
+function proc1() { //1
+	
+}
+
+proc2 = function(){ 
+	
+}*/
+
+
+proc3 = () => {
+	//점수 입력
+	score = parseInt(prompt("점수를 입력하세요"));
+	if(score>=100 || score>1){
+		switch(score/10) {
+		case 9 :
+			res = "A";
+			break;
+		case 8 :
+			res = "B";
+			break;
+		case 7 :
+			res = "C";
+			break;
+		case 6 :
+			res = "D";
+			break;
+		case 5 :
+			res = "F";
+			break;
+		}
+	}else {
+			res=prompt("오류");
+	}
+		
+	str = res;
+	document.getElementById('result3').innerHTML = str;
+}
+
+proc2 = () => { //ppt8-39
+	//수 입력
+	su1 =parseInt(prompt("첫번째 숫자를 입력하세요."));
+	//연산자 입력
+	cal = prompt("연산자를 입력하세요. (+,-,*,/ 중 하나)")
+	su2 = parseInt(prompt("두번째 숫자를 입력하세요."));
+	//연산자 비교 - if - switch - 결과 생성
+	
+	//switch
+	switch(cal) {
+	case "+":
+		res = su1+su2;
+	case "-":
+		res = su1-su2;
+	case "*":
+		res = su1*su2;
+	case "/":
+		res = su1/su2;
+	}
+	
+	//if
+	/*if(cal == "+"){
+		res = su1 + su2;
+	}else if(cal == "-") {
+		res = su1 - su2;
+	}else if(cal == "/"){
+		res = su1/su2;
+	}else if(cal=="*"){
+		res = su1 * su2;
+	}*/
+	//출력 내용 작성
+	str = su1 + cal + su2 + "=" + res;
+	//출력 장소 검색 접근 - 출력
+	document.getElementById('result2').innerHTML = str;
+}
+
+
+proc1 = () => { //3. 람다함수, 화살표 함수
+	//숫자 2개를 입력받기
+	var in1 = prompt("수 입력","1~100사이 정수") //'첫'번째 파라미터 작성은 필수. 두번째는 옵션. 
+	//console.log(in1); //브라우저 콘솔에 입력
+	var in2 = prompt("1~100사이 정수 입력") //'첫'번째 파라미터 작성은 필수. 두번째는 옵션.
+	//연산
+	add = parseInt(in1) + parseInt(in2);
+	sub = in1 - in2;
+	multi = in1 * in2;
+	divide = in1 / in2;
+	
+	console.log(add,sub,multi,divide)
+	
+	//출력 내용 작성
+	str = "첫번째 수 " + in1 + "<br>";
+	str += "두번째 수 " + in2 + "<br>";
+	str += "덧셈 " + add + "<br>";
+	str += "뺄셈 " + sub + "<br>";
+	str += "곱셈 " + multi + "<br>";
+	str += "나눗셈 " + divide + "<br>";
+	
+	
+	
+	//출력 장소 접근
+	document.getElementById('result').innerHTML = str;
+	
+} 
+</script>
+<style>
+.box{
+	border : 1px solid blue;
+	padding : 10px;
+	margin : 20px;
+}
+.box input[type=button]{
+	width : 150px;
+	height : 50px;
+	border-radius : 20px;
+	background : blue;
+	color : white;
+}
+.box div{
+	border : 1px dotted orange;
+	padding : 10px;
+	margin : 10px;
+}
+
+
+</style>
+</head>
+<body>
+<div class="box">
+	<h4>두수를 입력 하여 사칙연산을 수행</h4>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result"></div>
+</div>
+<br>
+
+<div class="box">
+	<h4>두수와 연산자를 입력하여 사칙연산 수행</h4>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+</div>
+
+<div class="box">
+	<h4>점수를 입력하여 학점을 계산 수행</h4>
+<input type="button" value="확인" onclick="proc3()">
+<br><br>
+<div id="result3"></div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

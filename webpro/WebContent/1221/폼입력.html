@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+form{
+	border : 1px solid blue; 
+	margin : 10px auto;
+	padding : 5px;
+	width : 50%;
+}
+span{
+	width : 80px;
+	height : 30px;
+	display : inline-block;
+}
+</style>
+</head>
+<body>
+<form action="입력1.jsp" method="post">
+ 	<span>아이디</span><input type="text" name="id"> <br>
+ 	<span>비밀번호</span> <input type="password" name="pass"> <br>
+ 						<input type="hidden" name="name" value="이성경">
+ 	
+ 	<br>
+ 	<input type="submit" value="전송"> 
+ 	<input type="reset" value="취소">
+ 	<input type="button" value="확인" onclick="window.alert('Hello')"> <!-- submit과 reset은 기능이 있지만 button은 기능이 없음 -->
+											  <!-- window.은 생략 가능. alert 안에 "Hello"를 썼으면 바깥 괄호는 '', 반대는 반대로. -->
+</form> <!-- 자동으로 줄이 바뀜 -->
+
+</body>
+</html>

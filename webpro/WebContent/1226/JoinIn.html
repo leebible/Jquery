@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+label{
+	display : inline-block;
+	width : 120px;
+	height : 30px;
+}
+div{
+	border : 2px dotted blue;
+	width : 450px;
+	padding : 20px;
+}
+#addr{
+width : 263px;
+}
+
+</style>
+</head>
+<body>
+<h2>회원정보입력폼</h2>
+<div>
+<form>
+
+<label class="lab">아이디</label>
+<input name="id" required autofocus pattern="[a-z][a-zA-Z0-9]{3,9}">
+<input type="submit" value="중복검사"><br>
+
+
+<label class="lab">이름</label>
+<input name="name" required><br>
+
+<label class="lab">생년월일</label>
+<input name="bir"><br>
+
+<label class="lab">비밀번호</label>
+<input type="password" name="pass"><br>
+
+<label class="lab">비밀번호 확인</label>
+<input type="password" name="pass"><br>
+
+<label class="lab">성별</label>
+<input type="radio" name="gent" value="여자" checked> 여성
+<input type="radio" name="gent" value="남자"> 남성 <br>
+
+<label class="lab">휴대폰 번호</label>
+<input name="tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"><br>
+
+<label class="lab">이메일</label>
+<input name ="email" pattern ="[a-zA-Z0-9]+@([a-zA-Z]+[0-9]*)(\.[a-zA-Z]+){1,2}"> <br>
+
+<label class="lab">우편번호</label>
+<input name="addr">
+<input type="submit" value="우편번호검색"><br>
+
+<label class="lab2">주소</label>
+<input name="addr2" id="addr"><br>
+
+<label class="lab2">상세주소</label>
+<input name="addr3" id="addr"><br>
+<br>
+<button type="submit">전송</button>
+<button type="reset">초기화</button>
+</form>
+</div>
+</body>
+</html>
