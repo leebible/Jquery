@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body{
+	margin: 30px;
+	min-width: 1000px;
+}
+#id{
+	margin: 20px;
+}
+.lab{
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+}
+form{
+ 	width: 40%;
+ 	border: 2px dotted;
+ 	padding: 2%;
+}
+#ad{
+	width: 270px;
+}
+#h{
+	margin: 5px 0px 0px 0px;
+}
+</style>
+</head>
+<body>
+<h2 id="id">회원정보입력폼</h2>
+<form action="입력3.jsp" method="post">
+	<label class="lab">아이디</label>
+	<input id="in" required pattern="[a-z][a-zA-Z0-9]{3,9}">
+	<button type="submit">중복확인</button><br>
+
+	<label class="lab">이름</label>
+	<input required pattern="[a-z][a-zA-Z0-9]{3,9}"><br>
+	
+	<label class="lab">생년월일</label>
+	<input required pattern="[a-z][a-zA-Z0-9]{3,9}"><br>
+	
+	<label class="lab">비밀번호</label>
+	<input pattern="[a-z][a-zA-Z0-9]{3,9}"><br>
+	
+	<label class="lab">비밀번호확인</label>
+	<input pattern="[a-z][a-zA-Z0-9]{3,9}"><br>
+	
+	 성별
+ 	<input type='radio' name='gender' value='Female' />여성
+  	<input type='radio' name='gender' value='Male' />남성
+	<br>
+	
+	<label class="lab" id="h">휴대폰 번호</label>
+	<input name="tel" required pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"><br>
+
+	<label class="lab">이메일</label>
+	<input name="email" pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+[0-9]*)(\.[a-zA-Z]+){1,2}"><br>
+	
+	<label class="lab">우편번호</label>
+	<input name="title" required title="제목">
+	<button type="submit">우편번호검색</button><br>
+	
+	<label class="lab">주소</label>
+	<input name="title" id="ad" required title="제목"><br>
+	
+	<label class="lab">상세주소</label>
+	<input name="title" id="ad" required title="제목"><br>
+	<br>
+	
+	<button type="submit">전송</button>
+	<button type="reset">초기화</button>
+</form>
+</body>
+</html>
