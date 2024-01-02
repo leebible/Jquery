@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#topMenu {
+	height : 80px;
+	width : 100%;
+	background-color : skyblue;
+	text-align : center;
+	display : flex;
+	flex-direction : column;
+}
+#topMenu ul li{
+	list-style : none; /* 목록 이미지  */
+	color : skyblue; /* 글씨색 설정  */
+	float : left; /* <li>태그들이 왼쪽에 흐르게 설정(아래있는 내용은 오른쪽으로 옴)  */
+	line-height : 50px; /* 글씨가 가운데로 오도록 설정하기 위해 한줄의 높이를 30px로 설정  */
+	vertical-align : bottom; /* 세로 정렬을 가운데로 설정*/
+	text-align : center; /* 글씨 정렬을 가운데로 설정*/
+	margin-left : 75px;
+}
+nav .topmenuLink{
+	text-decoration : none; /* 링크<a>태그 가 가지는 기본 꾸밈효과(밑줄 등)제거  */
+	color : white; /* 폰트색  */
+	width : 150px;
+	font-weight : bold;
+}
+
+nav .leftmenuLink{
+	text-decoration : none; /* 링크<a>태그 가 가지는 기본 꾸밈효과(밑줄 등)제거  */
+	color : gray; /* 폰트색  */
+	font-weight : bold;
+	padding : 0;
+	margin : 0;
+}
+#leftMenu ul li{
+	text-align : center;
+	background : white;
+	height : 50px;
+	border : 1px solid gray;
+	list-style : none; /* 목록 이미지  */
+/*	border : 1px solid gray;
+	display : block; */
+	
+}
+body *{
+	box-sizing : border-box;
+}
+#parent1{
+	display : flex;
+	flex-direction : column;
+}
+#second{
+	display : flex;
+	flex-direction : row;
+
+}
+footer{
+	height : 80px;
+	background : gray;
+}
+header{
+	height : 80px;
+	background : white;
+	font : center;
+}
+aside, section{ /*가로는 따로*/
+	height : 500px;
+	padding : 0;
+	margin : 0;
+}
+#left{ /*aside*/
+	/*flex : 1, 1, auto;*/
+	display : flex;
+	flex-direction : column;
+	flex : 15%;
+	background : pink;
+	padding : 0;
+	margin : 0;
+}
+#right {
+	flex : 15%;
+	background : lightgray;
+}
+section{
+	flex : 70%;
+	background : white;
+}
+
+img{
+	width : 100%;
+	height : 100%;
+	}
+	
+
+
+	
+</style>
+</head>
+<body>
+<div id = "parent1">
+	<header>
+	<h1>Web Shop</h1>
+	</header>
+	<nav id="topMenu">
+		<ul>
+			<li><a class = "topmenuLink" href="#">HOME</a></li>
+			<li><a class = "topmenuLink" href="#">About Us</a></li>
+			<li><a class = "topmenuLink" href="#">News</a></li>
+			<li><a class = "topmenuLink" href="#">My Account</a></li>
+			<li><a class = "topmenuLink" href="#">Contacts</a></li>
+		</ul>
+	</nav>
+	
+	<div id = "second">
+		<aside id = "left">
+		
+		<nav id="leftMenu">
+		<h3>카테고리</h3>
+			<ul>
+				<li><a class = "leftmenuLink" href="computer.html" target="ifr">컴퓨터</a></li>
+				<li><a class = "leftmenuLink" href="clothing.html" target="ifr">의류</a></li>
+				<li><a class = "leftmenuLink" href="">음악</a></li>
+				<li><a class = "leftmenuLink" href="">영화</a></li>
+				<li><a class = "leftmenuLink" href="">스포츠/레져</a></li>
+				<li><a class = "leftmenuLink" href="">가구/인테리어</a></li>
+				<li><a class = "leftmenuLink" href="">식품</a></li>
+			</ul>
+		</nav>	
+		
+		</aside>
+		<section>
+		<article id="article1">
+		<iframe src="computer.html" name="ifr" frameborder="0" width="100%" height="500"
+				 scrolling="no"></iframe>
+		</article>
+		</section>
+		<aside id = "right">
+			<h3>Shopping Cart</h3>
+			<p>현재 쇼핑카트에 물품이 없습니다.</p>
+			<ul>
+				<li><a href ="https://www.w3school.com">w3schools</a></li>
+				<li><a href ="https://www.naver.com">Naver</a></li>
+				<li><a href ="https://daum.net">Daum</a></li>
+			</ul>
+		</aside>
+	</div>
+	
+	<footer>
+	<p>Copyright (c)2019 Hong </p>
+	</footer>
+</div>
+</body>
+</html>
