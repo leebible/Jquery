@@ -3,130 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>	
-body *{
-	box-sizing : border-box;
-	margin : 2px;
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu:wght@700&family=Nanum+Gothic&display=swap');
+
+#topmain {
+	color : white;
 }
 
-
-#topMenu{
-	height : 50px;
+#TM {
+	height : 80px;
 	width : 100%;
-	background-color : skyblue;
+	background-color : #819FF7;
 	text-align : center;
 	display : flex;
 	flex-direction : column;
 	
 }
-
-#topMenu ul li{
+#TM ul li{
 	list-style : none; /* 목록 이미지  */
 	color : skyblue; /* 글씨색 설정  */
 	float : left; /* <li>태그들이 왼쪽에 흐르게 설정(아래있는 내용은 오른쪽으로 옴)  */
-	line-height : 50px; /* 글씨가 가운데로 오도록 설정하기 위해 한줄의 높이를 30px로 설정  */
+	line-height : 40px; /* 글씨가 가운데로 오도록 설정하기 위해 한줄의 높이 설정  */
 	vertical-align : bottom; /* 세로 정렬을 가운데로 설정*/
 	text-align : center; /* 글씨 정렬을 가운데로 설정*/
-	margin-left : 75px;
-	/*background-color : skyblue; /* 바탕색 설정  */
+	margin-left : 170px;
+	font-size : 1.3rem;
 }
-
-#topMenu .topmenuLink{
+#TM a{
 	text-decoration : none; /* 링크<a>태그 가 가지는 기본 꾸밈효과(밑줄 등)제거  */
 	color : white; /* 폰트색  */
 	width : 150px;
 	font-weight : bold;
-	/*display : block; /* 글씨 부분 포함한 전체 영역을 클릭해도 링크가 걸림  */
 }
-
-#leftMenu{
-	height : 100%;
-}
-
-section{
+#LM li{ /* 왼쪽메뉴 */
+	list-style-type: none;
+	height : 50px;
+	text-align : center;
 	background : white;
-	flex : 70%;
-}
+	vertical-align : bottom;
+	border : 1px solid #F2F2F2;
+	list-style : none; /* 목록 이미지  */
+	line-height : 50px;
 
-section, aside{
-	height : 400px;
 }
+#LM a{
+	text-decoration: none;
+	color: gray;
+}
+header{
+	background : #08298A;
+}
+header a{
+	text-decoration : none;
+}
+body{
+	min-width: 1000px;
+	width : 1550px;
+	margin : auto;
+}
+body *{
+	box-sizing: border-box;
+	padding: 2px;
+}
+#main, #left, #right{
+	height: 700px;
+}
+#main{
+	position: relative;
+	float: left;
+	width: 70%;
+	min-width : 800px;
+}
+#left{
+	border: 1px solid #A9A9A9;
+	width: 15%;
+	background: #F2F2F2;
+	padding: 15px;
+	float: left;
+}
+#right{
+	border: 1px solid #A9A9A9;
+	width: 15%;
+	float: right;
+	background: #D8D8D8;
 
-section div{
-	width : 90%;
+	padding: 10px;
 }
+iframe{
 
-aside{
-	flex : 30%;
-	background : lightgray;
-	padding : 30px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
-#left{  /* 왼쪽메뉴  */
-	display : flex;
-	flex-direction : row;
-}
-
 footer{
-	background : gray;
+	clear: both;
+	text-align: center;
+	font-size: 15px;
+	background-color : #585858;
+	color : white;
+}
+h3{
+	text-align : center;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
+#ab{
+	text-decoration: none;
+	border : none;
+	border-radius : 15px;
+	background-color : #08298A;
+	color : white;
+	width : fit-content;
+	margin : auto;
+	padding : 5px 5px;
 
+}
+#cartfont, #loginfont{
+	width : fit-content;
+	margin : auto;
+	color : #08298A;
 
+}
+#cart, #login{
+	width: 200px;
+	margin : auto;
+}
+#button{
+	padding : 5px 5px;
+	background-color : #08298A;
+	color : white;
+	border-radius : 15px;
+}
+img{
+	width : 50px;
+	height : 50px;
+}
 
 </style>
 </head>
 <body>
-<header>
-	<h1>
-		<img src="../images/11.jpg" alt="11.jpg">
-		<a href="main.html">Web Shop</a></h1>
-</header>
+	<header>
+		<h1>
+			<a href="main.html" id="topmain"><img src="이미지/shopping.png" >Web Shop</a>
+		</h1>
+	</header>
 
-
-<nav id="topMenu">
-<ul>
-	<li><a class = "topmenuLink" href="#">HOME</a></li>
-	<li><a class = "topmenuLink" href="#">About Us</a></li>
-	<li><a class = "topmenuLink" href="#">News</a></li>
-	<li><a class = "topmenuLink" href="#">My Account</a></li>
-	<li><a class = "topmenuLink" href="#">Contacts</a></li>
-</ul>
-</nav>
-
-<aside id="left">
-<h3>카테고리</h3>
-	<ul>
-		<li><a class = "leftmenuLink" href="computer.html">컴퓨터</a></li>
-		<li><a class = "leftmenuLink" href="">의류</a></li>
-		<li><a class = "leftmenuLink" href="">음악</a></li>
-		<li><a class = "leftmenuLink" href="">영화</a></li>
-		<li><a class = "leftmenuLink" href="">스포츠/레져</a></li>
-		<li><a class = "leftmenuLink" href="">가구/인테리어</a></li>
-		<li><a class = "leftmenuLink" href="">식품</a></li>
-	</ul>
-</aside>
-
-<section id="main">
-<div>
-안녕
-	<article id="article1">
-		<iframe src="computer.html" name="ifr"></iframe>
-	</article>
-</div>
-</section>
-
-
-
-<aside id="right">
-	<div id ="shopcart"></div>
-	<div id = "login">
-		<h4>Log In></h4>
-		<form action="#"></form>
+	<nav id="TM">
+		<ul>
+			<li><a class = "tm" href="#">HOME</a></li>
+			<li><a class = "tm" href="#">About Us</a></li>
+			<li><a class = "tm" href="#">News</a></li>
+			<li><a class = "tm" href="#">My Account</a></li>
+			<li><a class = "tm" href="#">Contacts</a></li>
+		</ul>
+	</nav>
+	
+	<aside id = "left">
+	<br><br><br>
+		<h3>카테고리</h3>
+		<ul id ="LM">
+			<li><a href="computer.html" target="ifr">컴퓨터</a></li>
+			<li><a href="clothing.html" target="ifr">의류</a></li>
+			<li><a href="music.html" target="ifr">음악</a></li>
+			<li><a href="movie.html" target="ifr">영화</a></li>
+			<li><a href="sports.html" target="ifr">스포츠/레져</a></li>
+			<li><a href="interior.html" target="ifr">가구/인테리어</a></li>
+			<li><a href="food.html" target="ifr">식품</a></li>
+		</ul>
+	</aside>
+	
+	<section id="main">
+		<article id="article">
+			<iframe src = "clothing.html" name="ifr" title="iframe"></iframe>
+		</article>
+	</section>
+		
+	<aside id = "right">
+	<div id = "cart">
+	<br><br><br>
+		<h2 id="cartfont">Shopping Cart</h2>
+		<p>현재 쇼핑카트에 물품이 없습니다.</p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a id="ab" href="shopcart.html">쇼핑카트 보기</a>
 	</div>
-</aside>
+	
+	<div id="login">
+	<br>
+		<h2 id="loginfont">Log In</h2>
+		<form>
+			<label >아이디</label><br>
+			<input id="login" type="text" name="id"><br>
+	
+	
+			<label >비밀번호</label><br>
+			<input id="login" type="text" name="pass"><br>
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="submit" id="button" value="로그인">
+			<input type="reset" id="button" value="초기화"><br><br>
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a id ="ab" href="register.html">회원가입</a><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id ="ab" href="#">비밀번호분실</a>
+		</form>
+	</div>
+	</aside>
+	
+	<footer>
+		<p>Copyright (c)2024 Lee </p>
+	</footer>
 
-
-<footer>
-copyright</footer>
 </body>
 </html>

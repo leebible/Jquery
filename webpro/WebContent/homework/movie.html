@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+main{
+	width: 500px;
+	height: 400px;
+}
+img{
+	width: 350px;
+	height: 500px;
+}
+
+.iframe-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* YouTube 영상의 16:9 비율을 유지하기 위한 값 */
+    }
+.iframe-container iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+</style>
+</head>
+<body>
+
+<section id="main">
+	<article id="article1">
+		<div class="iframe-container">
+		<iframe name="ifr" src="https://www.youtube.com/embed/yqoz0u6B_5M?si=ttSBw57rJ-cEuqr5" 
+		width="700px" height="400px" frameborder="0" allowfullscreen></iframe>
+		</div>
+	</article>
+</section>
+
+
+<a href="https://www.youtube.com/embed/yqoz0u6B_5M?si=ttSBw57rJ-cEuqr5" target="ifr">
+<img src="이미지/라따뚜이.JPG" name="라따뚜이" alt="라따뚜이.JPG" >
+</a>
+
+<a href="https://www.youtube.com/embed/Q0zFPlArth0?si=w1PuVjbo5yehmAz7" target="ifr">
+<img src="이미지/소울.JPG" name="소울" alt="소울.JPG">
+</a>
+
+</body>
+</html>

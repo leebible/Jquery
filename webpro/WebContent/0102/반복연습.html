@@ -118,8 +118,8 @@ proc6 = () =>{
 			continue;
 		}
 			hap = vinput1 + vinput2;
-			str = `${vinput1} + ${vinput2} = ${hap};`	
-			break;
+			str += `${vinput1} + ${vinput2} = ${hap}; <br>`	
+			continue;
 		}		
 	
 		document.getElementById('result6').innerHTML = str;
