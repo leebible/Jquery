@@ -49,24 +49,30 @@ proc2 = () =>{
 	
 }
 
-proc3 = () =>{
+proc3 = () => {
 	
-	//입력된 날짜값을 가져온다.
-	//id-index요소 접근 - 값
-	invalue = ; // 문자열
+	// 입력된 날짜값을 가져온다.
+	// id-inday요소 접근 - value값 	
+	invalue = document.getElementById("inday").value; //문자열
 	
-	//invalue로 Date 객체 생성
-	inday = ;
+	 // invalue로 Date 객체 생성
+	inDay = new Date(invalue);
 	
-	//현재와 선택날짜 사이의 간격 - getTime()
-	times = 
+	// 현재와 선택날짜 사이의의 간격 - getTime() today-gettime;
+	aday = today.getTime(); 
+	bday = inDay.getTime();
+	times = aday-bday;
 	
-	//날수 계산 /1000 /60 /60 /24
-	days = 24 * 60 * 60 * 1000 * 7;
-	
-	//비교
-	
-	
+	// 날수 계산 times/1000/60/60/24
+	days = times/1000/60/60/24;
+	str="";
+	// 비교
+	if (days > 7) {
+		str += `교환 불가능`;
+	} else {
+		str += `교환 가능`;
+	}
+	document.getElementById('result3').innerHTML = str;
 	
 }
 </script>
