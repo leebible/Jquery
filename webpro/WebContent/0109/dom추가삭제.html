@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+img{
+	width : 80px;
+	height : 80px; 
+}
+</style>
+
+<script>
+	//문자배열
+	arr = ["Hello", "Happy", "newYear", "Love", "Hope", "Lucky"];
+	
+proc1 = () =>{
+	//랜덤으로 발생되는 문자
+	rand = Math.floor(Math.random() * arr.length);
+	
+	//문자열 선택 arr[rand] - textNode로 생성
+	vtext = document.createTextNode(arr[rand]);
+	
+	//p태그 생성
+	vp = document.createElement('p');
+	
+	//p태그에 vtext를 추가
+	vp.appendChild(vtext);
+	
+	//result1 접근 - p태그를 추가
+	vres = document.getElementById('result1');
+	vres.appendChild(vp);
+}
+proc2 = () =>{
+	//부모 검색 - result1
+	vparent = document.getElementById('result1');
+	
+	//삭제대상의 자식을 선택 - firstChild
+	vchild = vparent.lastChild;
+	
+	//삭제하기 - 부모.removeChild(자식);
+	vparent.removeChild(vchild);
+}
+
+proc3 = () =>{
+	//랜덤으로 발생되는 문자
+	rand = Math.floor(Math.random() * arr.length);
+	
+	//문자열 선택 arr[rand] - textNode로 생성
+	vtext = document.createTextNode(arr[rand]);
+	
+	//p태그 생성
+	vp = document.createElement('p');
+	//input type="button" value="삭제"   생성
+	vinput = document.createElement('input');
+	vinput.type = "button";
+	vinput.value = "삭제";
+	vinput.onclick = function(){
+		vptag = this.parentNode;// this는 onclick한 객체가 되어야함. 람다함수 금지
+		vptag.remove();
+	}
+	
+	//p태그에 문자열 추가
+	vp.appendChild(vtext);
+	//p태그에 input버튼 추가
+	vp.appendChild(vinput);
+	
+	//result3 검색 - p태그를 추가
+	vres = document.getElementById('result3');
+	vres.appendChild(vp);
+	
+}
+//--------------------------------------------------------
+
+
+
+selImg = null;
+start = (stabt) =>{//stabt 매개변수 : 시작버튼, 지역변수(매개변수는 지역변수)
+	
+	//종료시 style 설정한 테두리를 지운다. 
+	if(selImg != null) selImg.style.border = "none";		
+	
+	//시작버튼을 안보이도록 설정
+	stabt.style.display = "none";
+	glstabt = stabt; //stabt를 전역변수로 만들어주기
+	
+	//id=result4를 검색 - 부모 역할
+	vres4 = document.getElementById('result4');
+	
+	
+		vid = setInterval(function(){
+		//첫번째 이미지를 선택 - firstChild
+		vimg = vres4.firstChild;
+		//부모.appendChild(자식) - 이동의 의미로 실행
+		vres4.appendChild(vimg); 
+		},5)
+	
+	
+}
+
+stop = () =>{
+	//시작버튼을 보이도록 설정	
+	glstabt.style.display = "inline";
+	
+	clearInterval(vid);
+	
+	
+	//전체이미지
+	imgAll = document.querySelectorAll('#result4 img');
+	
+	//랜덤발생 - 이미지의 갯수 이용 -imgAll.length
+	rand = Math.floor(Math.random() * imgAll.length);
+	
+	//이미지를 선택
+	selImg = imgAll[rand];
+	
+	//selImg의 스타일 변경 - border
+	selImg.style.border = "10px solid red";
+	
+	
+	
+}
+
+
+</script>
+</head>
+<body>
+
+<div class ="box">
+<h4></h4>
+<input type="button" value="확인" onclick="proc1()">
+<input type="button" value="삭제" onclick="proc2()">
+<br><br>
+<div id = "result1"></div>
+</div>
+
+<div class ="box">
+<h4></h4>
+<input type="button" value="추가" onclick="proc3()">
+<br><br>
+<div id = "result3"></div>
+</div>
+
+<div class ="box">
+<h4></h4>
+<input type="button" value="시작" onclick="start(this)">
+<input type="button" value="종료" onclick="stop()">
+<br><br>
+<div id = "result4">
+	<img src="../images/딸기스무디.jpg" alt ="딸기스무디.jpg">
+	<img src="../images/옷1.jpg" alt ="옷1.jpg">
+	<img src="../images/핫초코.jpg" alt ="핫초코.jpg">
+	<img src="../images/호랑이.jpg" alt ="호랑이.jpg">
+	<img src="../images/지구.jpeg" alt ="지구.jpeg">
+	<img src="../images/컴퓨터3.jpg" alt ="컴퓨터3.jpg">
+</div>
+</div>
+</body>
+</html>

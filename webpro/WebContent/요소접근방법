@@ -26,6 +26,10 @@ d = document.getElementsByTagName('tag이름')
 d1 = document.querySelectorAll('tag이름') //태그 여러개 다 가져옴 !
 d2 = document.querySelector('tag이름')
 
+
+
+
+
 //요소의 값 가져오기
 ☆☆☆☆☆☆☆☆☆☆☆☆☆중요☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 a.value -input요소, select/option, textarea

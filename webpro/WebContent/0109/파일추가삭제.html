@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<script>
+addFile = () =>{
+	//p태그 생성
+	vp = document.createElement('p');
+	
+	//input type = "file" 
+	vinputf = document.createElement('input');
+	vinputf.type = "file";
+	
+	//input 태그 생성 = type="button" value="삭제"
+	vinputb = document.createElement('input');
+	vinputb.type = "button";
+	vinputb.value = "삭제";
+	vinputb.onclick = function(){
+		vptag = this.parentNode;
+		vptag.remove();
+	}
+	
+	//p태그에 vinputf와 vinputb를 추가 - appendchild();
+	vp.appendChild(vinputf);
+	vp.appendChild(vinputb);
+	
+	//result1검색
+	vres = document.getElementById('result1');
+	vres.appendChild(vp);
+}
+	
+
+
+</script>
+</head>
+
+<body>
+
+<div class ="box">
+<h4></h4>
+<br><br>
+<div id = "result1">
+	<input type="file">
+	<input type="button" value="추가" onclick="addFile()">
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+#result1, #result2{
+	display : flex;
+	flex-direction : row;
+	
+	width : 70%; 
+	height : 200px;
+	background : darkgray;
+}
+.result div{
+	flex : 25%;
+	height : 80%;
+	background : lightgray;
+}
+img{
+	width : 95%;   /*.result div의 95% */
+	height : 70%; 
+}
+.box div{
+	
+}
+</style>
+
+<!-- head안에 쓰는게 일반적이긴 하나 body에서도 작성 가능 -->
+<script> 
+
+ptag = null;
+sales = (pimg) =>{
+	//이미 생성되어있는 ptag를 삭제하라
+	//맨최초 실행시 
+ 	if(ptag != null) ptag.remove();
+	
+	//랜덤 발생 5~15%
+	rand = Math.floor((Math.random() *((15-10)+1))+5);
+	
+	//ptag생성
+	ptag = document.createElement('p');
+	
+	//n% 문자열을 생성 - textNode
+	tnode = document.createTextNode(rand+"%");
+	//p태그에 text노드 추가
+	ptag.appendChild(tnode);
+
+	//클릭한 이미지- this의 부모를 검색 - parentNode
+	imgParent = pimg.parentNode;
+	
+	//imgParent에 ptag를 추가
+	imgParent.appendChild(ptag);
+	
+	//더이상 클릭이벤트가 발생하지 않도록 이벤트 제거
+	//this.removeEventListener('click', imgSales); 
+	
+}
+
+//----------------------------------------------------------
+window.onload = function(){
+	vimg = document.querySelectorAll('#result2 img');
+	
+	for(i=0; i<vimg.length; i++){
+		//vimg[i].addEventListener('click', function(){})
+		vimg[i].addEventListener('click', imgSales);	
+	}
+}
+
+ptag = null;
+
+	//이미 생성되어있는 ptag를 삭제하라
+	//맨최초 실행시 
+	imgSales = function(){
+		if(ptag != null) ptag.remove();
+	
+	//랜덤 발생 5~15%
+	rand = Math.floor((Math.random() *((15-10)+1))+5);
+	
+	//ptag생성
+	ptag = document.createElement('p');
+	
+	//n% 문자열을 생성 - textNode
+	tnode = document.createTextNode(rand+"%");
+	//p태그에 text노드 추가
+	ptag.appendChild(tnode);
+
+	//클릭한 이미지- this의 부모를 검색 - parentNode
+	imgParent = this.parentNode;
+	
+	//imgParent에 ptag를 추가
+	imgParent.appendChild(ptag);
+	
+	//더이상 클릭이벤트가 발생하지 않도록 이벤트 제거
+	this.removeEventListener('click', imgSales);
+}
+ 
+</script>   
+
+
+</head>
+<body>
+
+<div class ="box">
+<h4>각 이미지에 onclick 이벤트 설정</h4>
+<br><br>
+<div id = "result1" class = "result">
+	<div><img onclick="sales(this)" src = "../images/카페라떼.jpg" alt ="카페라떼.jpg" ></div>
+	<div><img onclick="sales(this)" src = "../images/카푸치노.jpg" alt ="카푸치노.jpg" ></div>
+	<div><img onclick="sales(this)" src = "../images/아메리카노.jpg" alt ="아메리카노.jpg" ></div>
+	<div><img onclick="sales(this)" src = "../images/핫초코.jpg" alt ="핫초코.jpg" ></div>
+</div>
+</div>
+
+<div class ="box">
+<h4>js 에서 이벤트 일괄 등록 처리<br>
+addEventListener()</h4>
+<br><br>
+<div id = "result2" class = "result">
+	<div><img  src = "../images/카페라떼.jpg" alt ="카페라떼.jpg" ></div>
+	<div><img  src = "../images/카푸치노.jpg" alt ="카푸치노.jpg" ></div>
+	<div><img  src = "../images/아메리카노.jpg" alt ="아메리카노.jpg" ></div>
+	<div><img  src = "../images/핫초코.jpg" alt ="핫초코.jpg" ></div>
+</div>
+</div>
+
+<!-- <script> //head안에 쓰는게 일반적이긴 하나 body에서도 작성 가능
+//head안에 쓴거와 다르게 window.onload function 없어도 가능
+	vimg = document.querySelector('#result2 img');
+	
+	for(i=0; i<vimg.length; i++);{
+		//vimg[i].addEventListener('click', function(){})
+		vimg[i].addEventListener('click', imgSales);
+	}
+	imgSales = function(){
+		this.
+	}
+		
+</script> -->
+</body>
+</html>
