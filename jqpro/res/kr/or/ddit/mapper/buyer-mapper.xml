@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 이 문서는 MyBatis에서 처리할 SQL문을 작성하는 문서입니다. -->
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
+			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="buyer">
+
+	<select id="selectById" parameterType="String" resultType="BuyerVO">
+	select * from buyer where buyer_name = #{data}
+	</select>
+	
+	<select id="selectByName"  resultType="BuyerVO">
+	select buyer_name from buyer
+	</select>
+	
+</mapper>

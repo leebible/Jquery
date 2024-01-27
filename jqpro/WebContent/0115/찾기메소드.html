@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+.ancestors * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+</style>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+//1번째 방법
+//$(document).ready(function(){})
+
+//2번째방법
+//$(function(){})
+
+//3번째방법
+$(()=>{
+	$('#par').on('click',()=>{
+		$('span').parent().css('border', '2px solid red'); //이거나
+	})
+	
+	$('#parts').on('click',()=>{
+		$('span').parents().css('border', '2px solid green');
+	})
+	
+	$('#partse').on('click', ()=>{
+		$('span').parents('ul').css('border', '2px solid blue'); //이거를 많이 씀
+	})
+	
+	$('#partun').on('click', ()=>{
+		$('span').parentsUntil('#result1').css('border', '2px solid hotpink');
+	})
+	
+	$('.btn').on('click', function(){ //프로젝트에 많이 쓰임..
+		vparents = $(this).parents('.result');
+		vspan = vparents.find('span');
+		vspan.css('background', 'gold');
+	})
+})
+</script>
+</head>
+
+<body>
+
+<div class ="box">
+	<input type="button" value="parent" id="par"> <!-- 부모찾기 -->
+	<input type="button" value="parents" id="parts"> <!-- 조상찾기 -->
+	<input type="button" value="parents_se" id="partse">
+	<input type="button" value="parent_unt" id="partun">
+<br><br>
+
+
+<div class ="box">
+	<div id = "result1" class="ancestors">
+		 <div style="width:500px;"> div (great-grandparent)
+    	  <ul>ul (grandparent)  
+    		 <li>li (direct parent)
+       		 	<span>span</span>
+     		 </li>
+  		  </ul>   
+   		   <button type="button">확인</button>
+ 		 </div>
+	</div>
+</div>
+
+
+<div class ="box">
+	<div id = "result2" class="ancestors result">
+		<div style="width:500px;"> div (great-grandparent)
+		    <ul>ul (grandparent)  
+		      <li>li (direct parent)
+	        	<span>span</span>
+	     	 </li>
+	   	    </ul>   
+	   	    <button class="btn" type="button">확인</button>
+		</div>
+	</div>
+</div>
+
+	<div id = "result3" class="ancestors result">
+		<div style="width:500px;"> div (great-grandparent)
+		    <ul>ul (grandparent)  
+		      <li>li (direct parent)
+	        	<span>span</span>
+	     	 </li>
+	   	    </ul>   
+	   	    <button class="btn" type="button">확인</button>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<script src = "../js/jquery-3.7.1.min.js"></script>
+<script>
+obarrproc = () => {
+	fetch("../0117/obarr.jsp")
+	.then(resp =>{
+		resp.json();
+	})
+	.then(data =>{
+		code
+	})
+}
+objproc = () =>{
+	fetch("../0117/obj.jsp")
+	.then(resp =>{
+		resp.json();
+	})
+	.then(data =>{
+		//출력내용 완성
+		code = "이름: " + data.name + "<br>";
+		//출력
+	})
+}
+
+arrproc = () =>{
+	
+	fetch("../0117/arr.jsp")
+	.then((response) => {
+		response.json();
+	})
+	.then(data =>{
+		//data: ["이순신", "이몽룡", "변학도", "강감찬", "홍길동", "성춘향", "일지매"]
+		data.forEach((vs, index) => {
+			code += "<li>" + str + "</li>";
+		})
+		code += "</ol>";
+		$('#result2').html(code);
+		})
+		//출력
+		
+	}
+
+
+
+textproc = () =>{
+	//let promi = fetch('../0117/text.jsp')
+	fetch('http://192.168.142.38/jqpro/0117/text.jsp',{
+		mode : 'cors'	
+	})
+	.then(function(resp){
+		console.log("resp", resp);
+		return resp.text();
+	})
+	.then(data => {
+		str = data.split("/");
+		code = "<ul>"
+		$.each(str,function(i, val){
+			code += "<li>" + str[i] + "</li>"
+		})
+		code += "</ul>";
+		$('#result1').html(code);
+	})
+}
+
+
+
+</script>
+</head>
+<body>
+
+<div class ="box">
+	<input type="button" value="text" onclick="textproc()">
+	<input type="button" value="arr" onclick="arrproc()">
+	<input type="button" value="jsonobj" onclick="objproc()">
+	<input type="button" value="jobarr" onclick="obarrproc()">
+	<br><br>
+	<div id="content">
+		<div id = "result1" class="res"></div>
+		<div id = "result2" class="res"></div>
+		<div id = "result3" class="res"></div>
+		<div id = "result4" class="res"></div>
+	</div>
+</div>
+</body>
+</html>

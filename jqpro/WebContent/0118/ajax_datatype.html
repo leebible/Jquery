@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+$(()=>{
+	
+	$('#obarr').on('click', ()=>{
+	
+		$.getJSON(
+				'../0117/obarr.jsp',
+				function(res){
+					code = "";
+					$.each(res, function(i, v){
+						code += `${i+1}번째 회원자료 <br>`;
+						code += `이 름 : ${v.name} <br>`;
+						code += `나 이  : ${v.tel} <br>`;
+						code += `전 화  : ${v.zip} <br>`;
+						code += `주 소   : ${v.addr} <br><br>`;
+					})
+					$('#result4').html(code);
+					
+				})
+		
+	})
+	
+	$('#jobj').on('click', ()=>{
+		$.ajax({
+			url : '../0117/obj.jsp',
+			type : 'get',
+			success : function(res){
+				//출력
+				code = `이 름 : ${res.name} <br>`;
+				code += `전 화  : ${res.tel} <br>`;
+				code += `우편번호  : ${res.zip} <br>`;
+				code += `주 소   : ${res.addr} <br>`;
+				
+				
+				$('#result3').html(code);
+			},
+			error : function(xhr){
+				alert("상태 : " + xhr.status); //200
+			},
+			dataType : 'json'
+		})
+	})
+	
+	
+	$('#arr').on('click',()=>{
+		$.ajax({
+			url : '../0117/arr.jsp',
+			type : 'get',
+			success : function(res){ //람다 : res => {}
+				//res : ["이순신", "이몽룡", "변학도", "강감찬", "홍길동", "성춘향", "일지매"]
+				code = "<ol>";
+				$.each(res,function(i, val) {
+					code += "<li>" + res[i] + "</li>" //res[i] 대신 val로 써도 됨
+				})
+				
+				code += "</ol>";
+				$('#result2').html(code);
+			},
+			error : (xhr) =>{
+				alert("상태 : " + xhr.status);
+				
+			},
+			dataType : 'json'
+		})
+	})
+	$('#text').on('click', ()=>{
+	/* 	$.get(//get은 순서 바뀌면 안됨 (url, data, success, dataType)
+			"aaa.jsp", 'id=aaa', function(res{ },'json')
+		$.getJSON("aaa.jsp",'id=aaa',function(res{ }) */
+		
+		$.ajax({ //밑에 순서는 상관없음 !
+			url :"../0117/text.jsp",
+			type : "get",
+			//data : "id=aaa", 데이터는 생략 가능
+			dataType : 'text',
+			success : function(res){
+				//res응답데이터
+				
+				res = res.split("/");
+				
+				code = "<ul>";
+				res.forEach((str, index)=>{
+					code += "<li>" + str + "</li>";
+				})
+				code += "</ul>"
+				$('#result1').html(code);
+			},
+			error : function(xhr){ //에러는 없어도 됨!
+				alert('상태 : ' + xhr.status) //200, 404, 500, 403
+			}// 마지막은 콤마 없애기
+			
+		})
+	})	
+})
+</script>
+</head>
+<body>
+
+<div class ="box">
+	<input type="button" value="text" id="text">
+	<input type="button" value="arr" id="arr" >
+	<input type="button" value="jsonobj" id="jobj">
+	<input type="button" value="jobarr" id="obarr">
+	<br><br>
+	<div id="content">
+		<div id = "result1" class="res"></div>
+		<div id = "result2" class="res"></div>
+		<div id = "result3" class="res"></div>
+		<div id = "result4" class="res"></div>
+	</div>
+</div>
+
+</html>

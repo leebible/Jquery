@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+pre{
+	border : 4px inset blue;
+	background-color : lightblue;
+	font-size : 1.2em;
+	padding : 20px;
+	margin : 10px;
+}
+.box{
+	border : 1px solid blue;
+	padding : 10px;
+	margin : 10px;
+}
+.box div{
+	border : 1px dotted orange;
+	padding : 10px;
+	margin : 10px;	
+}
+.box input[type=button], .box input[type=submit]{
+	background : blue;
+	color : white;
+	border-radius : 10px;
+}

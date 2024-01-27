@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<style>
+#bshow{
+	display : none;
+}
+</style>
+<script>
+
+//id btn1을 검색하기 위한 3가지 방식
+// (1)
+/* window.onload = function(){
+	$('#btn1')
+	
+} */
+
+//(2)
+/* $(document).ready(function(){ //documnet 내장된 객체이기 때문에 '' 쓰면 안됨
+	$('#btn1')
+	
+}) */
+
+
+//(3)
+//$(function(){
+$(() => { //람다함수
+		$('#bshow').on('click', () => {
+			
+			//전체  h2를 보이기
+			$('#result1 h2').show();	
+			
+			//버튼은 감추기
+			$(this).hide();
+			//$(this).css('display','none');
+			
+		})
+			
+	//$('#btn1').on('click', function(){
+		$('#result1 h2').on('click', function(){ //람다함수를 쓰면 안되는 이유..뤼튼찾아보기(쉅 못들음)
+			//3가지 방식
+			//(1)
+			//this.style.display = "none";
+			//(2)
+			//$(this).css('display', "none");
+			//(3)
+			$(this).hide();
+		
+			//비교 - 다 사라졌는지 비교. 남은 갯수가 0 인지
+			if($('#result1 h2:visible').length < 1){
+			$('#bshow').show();
+			//$('#bshow').css('display', 'inline'); //block이나 inline 둘중 선택
+			}
+		})
+	})
+
+//(번외) onclick일경우
+/* proc1 = function(){
+	$('#btn1')
+} */
+
+//$(function(){
+
+
+</script>
+<style>
+#bshow{
+	display : none;
+}
+</style>
+</head>
+<body>
+
+<div class ="box">
+<h4></h4>
+<input type="button" value="보이기" id="bshow">
+<br><br>
+<div id = "result1">
+<h2>클릭하면 사라집니다1</h2>
+<h2>클릭하면 사라집니다2</h2>
+<h2>클릭하면 사라집니다3</h2>
+<h2>클릭하면 사라집니다4</h2>
+<h2>클릭하면 사라집니다5</h2>
+<h2>클릭하면 사라집니다6</h2>
+<h2>클릭하면 사라집니다7</h2>
+<h2>클릭하면 사라집니다8</h2>
+<h2>클릭하면 사라집니다9</h2>
+<h2>클릭하면 사라집니다10</h2>
+</div>
+</div>
+</body>
+</html>

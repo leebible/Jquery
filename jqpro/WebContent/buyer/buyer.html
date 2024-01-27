@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+$(()=>{
+	$('.name').on('click', 'div', function(){
+		//idvalue = $(this).data('buyer_id')
+		idvalue = $(this).text();
+		
+		if(idvalue !=null){
+		
+		//서버로 전송
+		$.ajax({
+			url : '/jqpro/buyer/BuyerIdServlet.jsp',
+			type : 'get',
+			data : 'id=' + idvalue,
+			success : function(res){
+				code = "<table class='tc'>";
+				code += `<tr><td>Buyer_id</td><td>${res.buyer_id}</td>`;
+		      	code += `<tr><td>Buyer_name  </td><td>${res.buyer_name}</td>`;
+		      	code += `<tr><td>Buyer_lgu</td><td>${res.buyer_lgu}</td>`;
+		      	code += `<tr><td>Buyer_bank</td><td>${res.buyer_bank}</td>`;
+		      	code += `<tr><td>Buyer_bankno</td><td>${res.buyer_bankno}</td>`;
+		      	code += `<tr><td>Buyer_bankname</td><td>${res.buyer_bankname}</td>`;
+		      	code += `<tr><td>Buyer_zip</td><td>${res.buyer_zip}</td>`;
+		      	code += `<tr><td>Buyer_add1</td><td>${res.buyer_add1}</td>`;
+		      	code += `<tr><td>Buyer_add2</td><td>${res.buyer_add2}</td>`;
+		      	code += `<tr><td>Buyer_comtel</td><td>${res.buyer_comtel}</td>`;
+		      	code += `<tr><td>Buyer_mail</td><td>${res.buyer_mail}</td>`;
+				code += "</table>"; 
+				  
+				  $('.value').html(code);
+			},
+			error : function(xhr){
+				alert("상태 : " + xhr.status)
+			},
+			dataType : 'json'
+		}) 
+		}//if문끝. else문 코딩할필요 없음
+	})
+	
+	//lprod가 출력
+	$('#btn1').on('click', ()=>{
+		$.ajax({
+			url : "/jqpro/buyer/BuyerNameServlet.jsp",
+			type : "get",
+			success : function(res){
+				code = "";
+				$.each(res, function(i,v){
+					 // code += `<div id="dd" data-buyer_id="${v.buyer_name}">${v.buyer_name}</div>`;
+					  code += `<div id="dd">${v.buyer_name}</div>`;
+				})
+				$('.name').html(code);
+				$('.name').trigger('change')
+			},
+			error : function(xhr){
+				alert("상태 : " + xhr.status)
+			},
+			dataType : 'json'
+		})
+	})
+})
+</script>
+<style>
+table{
+	margin : 20px;
+	padding : 20px;
+	wdth : 300px;
+}
+#dd:hover{
+	background-color: lime;
+}
+#dd{
+	text-align : center;
+}
+body{
+	margin : 20px;
+}
+th{
+	text-align : center;
+}
+
+
+</style>
+</head>
+<body>
+
+
+ <div class ="box">
+<h4></h4>
+<input type="button" value="확인" id="btn1">
+<br><br>
+<div id = "result1">
+	<table style="width:500px; border-style : double">
+	  <thead>
+		<tr style="background-color: skyblue; text-align: center; border-style : double">
+			<th style="border-style : double">거래처이름</th>
+			<th style="width : 400px;">거래처상세정보</th>
+		</tr>
+	 </thead>
+		<tr>
+			<td style="border-style : double" class="name"></td>
+			<td class="value"></td>
+		</tr>
+	</table>
+
+</div>
+</div>
+
+</body>
+</html>
